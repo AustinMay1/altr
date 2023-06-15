@@ -16,6 +16,8 @@ public class Community
 
     public virtual ICollection<Post>? Posts { get; set; }
 
+    public Guid OwnerId { get; set; }
+
     public Community()
     {
         Posts = new List<Post>();

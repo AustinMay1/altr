@@ -12,6 +12,13 @@ public sealed class DbCtx : DbContext
 
     public DbCtx(DbContextOptions<DbCtx> options) : base(options) { }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder) =>
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
         modelBuilder.UseIdentityColumns();
+
+        modelBuilder.Entity<User>().HasAlternateKey(u => u.Username);
+
+        modelBuilder.Entity<Community>().HasAlternateKey(c => c.CommunityName);
+    }
+        
 }

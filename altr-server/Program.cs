@@ -11,6 +11,7 @@ builder.Services.AddDbContext<DbCtx>(options => options
 );
 
 builder.Services.AddScoped<IUserRepo, UserRepo>();
+builder.Services.AddScoped<ICommunityRepo, CommunityRepo>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -31,7 +32,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.MapGet("api/test", () => new { Test = "hello" });
 
 app.Run();

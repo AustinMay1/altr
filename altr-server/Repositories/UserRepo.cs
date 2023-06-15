@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using altr_server.data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace altr_server.Repositories;
@@ -28,9 +29,9 @@ public class UserRepo : IUserRepo
 
     public async Task<User?> GetByUsernameAsync(string username)
     {
-        var found = await _dbCtx.User.FindAsync(username);
+        var found = await _dbCtx.User.SingleAsync(u => u.Username == username);
 
-        return found;
+        return found ?? null;
     }
 
     public async Task<User?> UpdateAsync(User u, Guid userId)

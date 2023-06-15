@@ -22,5 +22,5 @@ public class Post
 
     public DateTime? UpdatedAt { get; set; }
 
-    public User User {  get; set; }
+    public Guid Author { get; set; }
 }
