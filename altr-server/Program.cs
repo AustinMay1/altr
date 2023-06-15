@@ -1,12 +1,16 @@
-using altr.Data;
+using altr_server.data;
+using altr_server.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<AltrDb>(options => options
+builder.Services.AddDbContext<DbCtx>(options => options
 .UseNpgsql(builder.Configuration.GetConnectionString("AltrDB"))
+.EnableDetailedErrors()
 );
+
+builder.Services.AddScoped<IUserRepo, UserRepo>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

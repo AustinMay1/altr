@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/altr-server/appsettings.json
+/altr-server/Migrations
+/altr-server/Data/DraftModels
+/altr-server/Data/EntityModels/DraftModels
+/altr-server/Controllers/WeatherForecastController.cs
