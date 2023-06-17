@@ -12,6 +12,7 @@ builder.Services.AddDbContext<DbCtx>(options => options
 
 builder.Services.AddScoped<IUserRepo, UserRepo>();
 builder.Services.AddScoped<ICommunityRepo, CommunityRepo>();
+builder.Services.AddScoped<IPostRepo, PostRepo>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

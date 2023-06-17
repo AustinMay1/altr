@@ -13,6 +13,7 @@ namespace altr_server.Repositories
         public async Task<Community?> CreateAsync(Community c)
         {
             EntityEntry<Community> add = await _dbCtx.Community.AddAsync(c);
+            Community posts = new Community();
 
             await _dbCtx.SaveChangesAsync();
 
@@ -22,7 +23,7 @@ namespace altr_server.Repositories
         public async Task<Community?> GetCommunityByName(string name)
         {
             var found = await _dbCtx.Community.SingleAsync(u => u.CommunityName == name);
-
+            
             return found ?? null;
         }
 

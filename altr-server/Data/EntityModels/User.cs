@@ -14,4 +14,6 @@ public class User
 
     [Required, MinLength(12)]
     public string Password { get; set; }
+
+    public ICollection<Post>? Posts { get; set; }
 }
